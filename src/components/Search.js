@@ -5,14 +5,14 @@ function Search(props) {
   <form className="form-inline d-flex justify-content-center">
     <input 
     value={props.Search}
-    onChange={props.handleInputChange}
+    onChange={e => props.handleFormSubmit(e)}
     name="search"
     className="form-control mr-sm-2" 
-    type="text" 
+    type="search" 
     placeholder="Search" 
     aria-label="Search" 
     />
-    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onChange={e => props.handleFormSubmit(e)}>Search</button> */}
   </form>
   )
 }

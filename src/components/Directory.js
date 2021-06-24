@@ -8,40 +8,67 @@ class Directory extends Component {
   state = {
     search: "",
     results: [],
-    sort: "",
-    error: ""
+    resultsFilter: [],
+    order: "ascend"  
   };
 
   componentDidMount() {
     API.search()
       .then(res => this.setState(
-        {results: res.data.results}))
+        {results: res.data.results, resultsFilter: res.data.results}))
         .catch(err => console.log(err))
   };
 
   handleInputChange = event => {
-    console.dir(event.target)
+    // console.dir(event.target)
     const name = event.target.name
     const value = event.target.value
-    this.state({
+    this.setState({
       [name]: value
     });
   };
 
   handleFormSubmit = event => {
-    event.preventDefault()
-    this.componentDidMount(this.state.search)
+    // event.preventDefault();
+    // console.log(event.target.value)
+    const search = event.target.value
+    const resultsFilter = this.state.results.filter(result => {
+      let data = Object.values(result).join('').toLowerCase();
+      return data.indexOf(search.toLowerCase()) !== -1;
+    })
+
+    this.setState({resultsFilter: resultsFilter})
   };
 
   handleSort = () => {
-    this.setState({ sort: this.state.sort.sort()})
-  }
+    //flag/state/marker see if ascend/descend then switch it
+    if (this.state.order === 'ascend') {
+      this.setState({order: 'descend'}) 
+    } else {
+      this.setState({order: 'ascend'})
+    }
+
+    console.log(this.state.order);
+    // if state === descend then run sort below
+    if (this.state.order === 'ascend'){
+      const sortResults = this.state.results.sort((a,b) => {
+        return (a.name.last < b.name.last) ?  -1 : 1
+      })
+      this.setState({results: sortResults})
+    } else {
+      const sortResults = this.state.results.sort((a,b) => {
+        return (b.name.last < a.name.last) ?  -1 : 1
+      })
+      this.setState({results: sortResults})
+    }
+
+  };
 
   render() {
     return <>
     <Header />
-    <Search handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
-    <EmployeeContainer results={this.state.results} handleSort={this.handleSort}/>
+    <Search handleFormSubmit={this.handleFormSubmit} />
+    <EmployeeContainer resultsFilter={this.state.resultsFilter} handleSort={this.handleSort}/>
     </>
   }
 }

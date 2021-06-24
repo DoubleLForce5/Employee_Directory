@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 function EmployeeDetails(props) {
   return (
     <tbody>
-      {props.results.map(results => (
+      {props.resultsFilter.map(results => (
         <tr key={results.email}>
           <td><img alt="Employee" src={results.picture.thumbnail} /></td> 
           <td>{results.name.first} {results.name.last}</td>
