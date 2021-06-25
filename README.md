@@ -16,8 +16,7 @@ https://doublelforce5.github.io/Employee_Directory/
 ## Usage instructions
 On page load, the user will be presented with a list of employees. Here the user can click the button on the header next to "Name" and sort employees by their last name in ascending and descending order. The user can also use the search bar to filter employees by first name, last name, and phone number. 
 
-![Screen Shot 2021-06-25 at 9 39 09 AM](https://user-images.githubusercontent.com/73543476/123441195-3290e000-d599-11eb-9617-4e5ea9bb4a01.png)
-
+<img width="1214" alt="Screen Shot 2021-06-25 at 5 02 30 PM" src="https://user-images.githubusercontent.com/73543476/123489240-27f53b80-d5d7-11eb-939c-08f8fffe6f0d.png">
 
 ## Tech 
 - Axios
