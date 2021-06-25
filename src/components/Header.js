@@ -7,7 +7,7 @@ function Header() {
         <h1 className="display-4 text-center">Employee Directory</h1>
       </div>
       <div className="mt-4">
-        <p className="lead text-center">Manage your employees.</p>
+        <p className="lead text-center">Manage your employees!</p>
       </div>
     </div>
   )
