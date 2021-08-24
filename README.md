@@ -19,6 +19,8 @@ On page load, the user will be presented with a list of employees. Here the user
 <img width="1214" alt="Screen Shot 2021-06-25 at 5 02 30 PM" src="https://user-images.githubusercontent.com/73543476/123489240-27f53b80-d5d7-11eb-939c-08f8fffe6f0d.png">
 
 ## Tech 
+- CSS
+- HTML
 - Axios
 - React 
 - Date-fns
